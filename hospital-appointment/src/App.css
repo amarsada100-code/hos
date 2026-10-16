@@ -1,0 +1,684 @@
+/* ===== GLOBAL STYLES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  color: #172b4d;
+  background: #f4f7fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  --primary: #2563eb;
+  --primary-dark: #1746b5;
+  --text: #172b4d;
+  --muted: #718096;
+  --border: #e5eaf3;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #f4f7fc;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== NAVBAR ===== */
+.navbar,
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 7%;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(28, 55, 100, 0.04);
+  backdrop-filter: blur(16px);
+}
+
+.navbar h2,
+header h2,
+.logo {
+  margin: 0;
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.navbar nav,
+header nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 26px;
+}
+
+.navbar nav a,
+header nav a {
+  color: #52627a;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.navbar nav a:hover,
+header nav a:hover,
+.navbar nav a.active,
+header nav a.active {
+  color: var(--primary);
+}
+
+/* ===== PAGE CONTAINER ===== */
+.container,
+.page-container {
+  width: min(1180px, 90%);
+  margin: 0 auto;
+  padding: 48px 0 70px;
+}
+
+.container h1,
+.page-container h1 {
+  margin: 0 0 12px;
+  color: var(--text);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -1.4px;
+}
+
+.container > p,
+.page-container > p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  margin: 34px auto;
+  padding: 75px 7%;
+  border-radius: 28px;
+  background: linear-gradient(120deg, #103b91, #2563eb 65%, #60a5fa);
+  color: white;
+  box-shadow: 0 20px 50px rgba(37, 99, 235, 0.2);
+}
+
+.hero h1 {
+  max-width: 700px;
+  margin: 0 0 20px;
+  color: white;
+  font-size: clamp(36px, 5vw, 58px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  max-width: 580px;
+  color: #e0ecff;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.hero::after {
+  position: absolute;
+  top: -100px;
+  right: -60px;
+  width: 300px;
+  height: 300px;
+  border: 45px solid rgba(255, 255, 255, 0.09);
+  border-radius: 50%;
+  content: '';
+  pointer-events: none;
+}
+
+/* ===== SEARCH & FILTERS ===== */
+.search-filter,
+.filter-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 28px 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 8px 28px rgba(28, 55, 100, 0.04);
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid #dce4f0;
+  border-radius: 12px;
+  outline: none;
+  background: #fbfcff;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-filter input,
+.search-filter select,
+.filter-panel input,
+.filter-panel select {
+  flex: 1;
+  min-width: 190px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  background: white;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #344563;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* ===== DOCTOR GRID ===== */
+.doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 30px;
+}
+
+/* Works with common doctor card class names */
+.doctor-card,
+.card,
+.doctor-profile {
+  overflow: hidden;
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 8px 25px rgba(28, 55, 100, 0.045);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.doctor-card:hover,
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.12);
+}
+
+.doctor-card h2,
+.doctor-card h3,
+.card h2,
+.card h3 {
+  margin: 10px 0;
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 750;
+}
+
+.doctor-card p,
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.doctor-card img,
+.card img {
+  width: 76px;
+  height: 76px;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.rating {
+  color: #d97706;
+  font-weight: 700;
+}
+
+.fee,
+.price {
+  color: var(--primary);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+/* ===== BUTTONS ===== */
+.btn,
+button.btn,
+button[type='submit'] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 45px;
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.18);
+}
+
+.btn:hover,
+button.btn:hover,
+button[type='submit']:hover {
+  transform: translateY(-2px);
+  background: var(--primary-dark);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.25);
+}
+
+.btn-secondary {
+  border: 1px solid #dce4f0;
+  background: white;
+  color: var(--text);
+  box-shadow: none;
+}
+
+.btn-secondary:hover {
+  background: #edf4ff;
+  color: var(--primary);
+}
+
+/* ===== FORMS & BOOKING ===== */
+form,
+.booking-form,
+.appointment-form {
+  display: grid;
+  gap: 18px;
+  width: min(100%, 680px);
+  margin: 25px auto;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: white;
+  box-shadow: 0 12px 35px rgba(28, 55, 100, 0.06);
+}
+
+form button {
+  width: 100%;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+/* ===== TABLES ===== */
+table {
+  width: 100%;
+  margin-top: 24px;
+  border-collapse: collapse;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 8px 25px rgba(28, 55, 100, 0.05);
+}
+
+th {
+  padding: 16px;
+  background: #edf4ff;
+  color: #244b8f;
+  text-align: left;
+  font-size: 13px;
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid #edf0f6;
+  color: #52627a;
+  font-size: 14px;
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+/* ===== STATUS & FEEDBACK ===== */
+.error {
+  padding: 15px;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  background: #fff1f2;
+  color: #b91c1c;
+}
+
+.success {
+  padding: 15px;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  background: #f0fdf4;
+  color: #166534;
+}
+
+.badge,
+.status {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 30px;
+  background: #eaf2ff;
+  color: #2458b5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ===== LOADING ===== */
+.loading {
+  display: flex;
+  min-height: 200px;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 50px;
+  padding: 28px 7%;
+  border-top: 1px solid var(--border);
+  background: white;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 900px) {
+  .doctor-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .navbar,
+  header {
+    padding: 16px 5%;
+  }
+
+  .navbar nav,
+  header nav {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container,
+  .page-container {
+    width: 92%;
+    padding-top: 30px;
+  }
+
+  .doctor-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .navbar,
+  header {
+    position: relative;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .navbar nav,
+  header nav {
+    gap: 12px 18px;
+  }
+
+  .hero {
+    padding: 45px 25px;
+    border-radius: 20px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  form,
+  .booking-form,
+  .appointment-form {
+    padding: 22px;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* ===== AUTHENTICATION PAGES ===== */
+
+.auth-page {
+  min-height: calc(100vh - 140px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background:
+    radial-gradient(circle at 10% 15%, #dbeafe 0, transparent 35%),
+    radial-gradient(circle at 90% 85%, #ede9fe 0, transparent 35%),
+    #f7f9ff;
+  box-sizing: border-box;
+}
+
+.auth-page h1 {
+  width: 100%;
+  max-width: 470px;
+  margin: 0 0 10px;
+  color: #172554;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.auth-page > p {
+  max-width: 470px;
+  margin: 8px 0 22px;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Registration and login card */
+
+.auth-form {
+  width: 100%;
+  max-width: 420px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  box-shadow:
+    0 20px 50px rgba(30, 64, 175, 0.10),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.25s ease;
+}
+
+.auth-form:hover {
+  box-shadow:
+    0 24px 60px rgba(30, 64, 175, 0.15),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+/* Form labels */
+
+.auth-form label {
+  margin-top: 8px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Input fields */
+
+.auth-form input {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 15px;
+  box-sizing: border-box;
+  color: #0f172a;
+  background: #f8fafc;
+  border: 1px solid #dbe3ef;
+  border-radius: 11px;
+  outline: none;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.auth-form input::placeholder {
+  color: #94a3b8;
+}
+
+.auth-form input:hover {
+  border-color: #a5b4fc;
+}
+
+.auth-form input:focus {
+  background: #ffffff;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+/* Main action button */
+
+.auth-form button {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 18px;
+  padding: 13px 18px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #6d28d9);
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 750;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.23);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.auth-form button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.32);
+}
+
+.auth-form button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.auth-form button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Error and status messages */
+
+.auth-error {
+  margin: 8px 0 0 !important;
+  padding: 11px 13px;
+  color: #b91c1c !important;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  font-size: 13px;
+  text-align: left !important;
+}
+
+.auth-page [role="status"] {
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  color: #166534;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Login / Create Account links */
+
+.auth-page a {
+  color: #4f46e5;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-page a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Keyboard accessibility */
+
+.auth-form button:focus-visible,
+.auth-page a:focus-visible {
+  outline: 3px solid #a5b4fc;
+  outline-offset: 4px;
+}
+
+/* Mobile responsive design */
+
+@media (max-width: 520px) {
+  .auth-page {
+    padding: 35px 16px;
+  }
+
+  .auth-page h1 {
+    font-size: 28px;
+  }
+
+  .auth-form {
+    padding: 25px 20px;
+    border-radius: 17px;
+  }
+}

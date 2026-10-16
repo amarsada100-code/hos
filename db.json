@@ -1,0 +1,93 @@
+{
+  "doctors": [
+    {
+      "id": "101",
+      "name": "Dr. Arun Kumar",
+      "specialty": "Cardiology",
+      "qualification": "MBBS, MD",
+      "experience": 10,
+      "fee": 500,
+      "rating": 4.8
+    },
+    {
+      "id": "102",
+      "name": "Dr. Priya Sharma",
+      "specialty": "Dermatology",
+      "qualification": "MBBS, MD Dermatology",
+      "experience": 7,
+      "fee": 400,
+      "rating": 4.7
+    },
+    {
+      "id": "103",
+      "name": "Dr. Rahul Verma",
+      "specialty": "Neurology",
+      "qualification": "MBBS, DM Neurology",
+      "experience": 12,
+      "fee": 600,
+      "rating": 4.9
+    }
+  ],
+  "availability": [
+    {
+      "id": "1",
+      "doctorId": 101,
+      "date": "2026-10-20",
+      "slots": [
+        "09:00 AM",
+        "10:00 AM",
+        "11:00 AM"
+      ]
+    },
+    {
+      "id": "2",
+      "doctorId": 102,
+      "date": "2026-10-20",
+      "slots": [
+        "09:30 AM",
+        "11:30 AM"
+      ]
+    },
+    {
+      "id": "3",
+      "doctorId": 103,
+      "date": "2026-10-21",
+      "slots": [
+        "09:00 AM",
+        "01:00 PM"
+      ]
+    }
+  ],
+  "appointments": [
+    {
+      "doctorId": "101",
+      "doctorName": "Dr. Arun Kumar",
+      "specialty": "Cardiology",
+      "date": "2026-10-20",
+      "timeSlot": "09:00 AM",
+      "patientDetails": {
+        "name": "amar",
+        "age": 12,
+        "phone": "1234567890"
+      },
+      "status": "Booked",
+      "createdAt": "2026-10-15T09:29:44.503Z",
+      "id": "_gBQRJ2gpOI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json",
+  "patients": [
+    {
+      "id": "1792130728460",
+      "name": "amar",
+      "email": "amar@gmail.com",
+      "passwordHash": "$2b$10$HqK5eTYq5uSf3iIl8nkQfOM9E8cafnvK.xCknS/i8WbALF6iHUS9S"
+    },
+    {
+      "id": "1792132445200",
+      "name": "sada",
+      "email": "sada@gmail.com",
+      "passwordHash": "$2b$10$LHjZhhVWfhRe/ufbR1LGP.7a4oCyBiYJgA0uUhnuwvrHJ/hCAS/gS"
+    }
+  ]
+}
